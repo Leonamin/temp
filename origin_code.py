@@ -153,7 +153,7 @@ Text3.grid(row=7,columnspan=5)
 
 
 imgLbl = Label(Gui, text="Img")
-imgLbl.grid(row = 3, column= 1)
+imgLbl.grid(row = 0, column= 1)
 CAMINIT()
 CAMMERA()
 
