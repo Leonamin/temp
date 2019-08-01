@@ -5,6 +5,7 @@ import time
 from Tkinter import *
 import tkFont
 
+
 # Libraries Imported successfully
 
 # Raspberry Pi 3 Pin Settings
@@ -90,6 +91,9 @@ def QUIT():
     print("Exit Button pressed")
     GPIO.cleanup()
     Gui.quit()
+
+def CAMMERA():
+
 
 # Funtion for Buttons ended here
 
