@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 from Tkinter import *
 import tkFont
-
+import cv2
 
 # Libraries Imported successfully
 
@@ -93,6 +93,7 @@ def QUIT():
     Gui.quit()
 
 def CAMMERA():
+    pass
 
 
 # Funtion for Buttons ended here
