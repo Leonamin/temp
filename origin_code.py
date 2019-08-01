@@ -4,7 +4,9 @@ import RPi.GPIO as GPIO
 import time
 from Tkinter import *
 import tkFont
-import cv2
+import cv2                  # opencv 카메라 제어
+import threading            # 멀티 스레딩
+from PIL import Image, ImageTk
 
 # Libraries Imported successfully
 
@@ -12,7 +14,6 @@ import cv2
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM) # We are accessing GPIOs according to their physical location
-
 pins = [14,15,17,4,23,24,27,22]
 
 GPIO.setup(pins, GPIO.OUT) # We have set our LED pin mode to output
@@ -29,6 +30,14 @@ Gui.minsize(800,400)
 Font1 = tkFont.Font(family = 'Helvetica', size = 24, weight = 'bold')
 
 # tkinter simple GUI created
+
+# image Label setting
+imgLbl = Label(Gui, text="Img")
+imgLbl.pack()
+
+# Flag variables creating
+killCamFlag = 0
+camFlag = 1
 
 # Funtion for Buttons started here
 
@@ -92,9 +101,34 @@ def QUIT():
     GPIO.cleanup()
     Gui.quit()
 
-def CAMMERA():
+def CAMINIT():
+    cap = cv2.VideoCapture(0)
+    cap.set(3, 320)
+    cap.set(4, 240)
     pass
 
+def CAMMERA():
+    while True:
+        if killCamFlag:
+            break
+
+        if camFlag:
+            ret, frame = cap.read()
+            frame = cv2.flip(frame, 1)
+            cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GBA)
+            img = Image.fromarray(cv2image)
+            imgtk = ImageTk.PhotoImage(image=img)
+            imgLbl.imgtk = imgtk
+            imgLbl.configure(image=imgtk)
+        else:
+            pass
+    pass
+
+CAMINIT()
+
+# 스레드 설정
+cam_thread = threading.Thread(target=CAMMERA)
+cam_thread.start()
 
 # Funtion for Buttons ended here
 
