@@ -32,8 +32,6 @@ Font1 = tkFont.Font(family = 'Helvetica', size = 24, weight = 'bold')
 # tkinter simple GUI created
 
 # image Label setting
-imgLbl = Label(Gui, text="Img")
-imgLbl.pack()
 
 # Flag variables creating
 killCamFlag = 0
@@ -152,6 +150,9 @@ Button7.grid(row=6,column=0)
 Text3 = Label(Gui,text='PROJECT AVATAR', font = Font1, bg = '#1E1E1E', fg='#FFFFFF', padx = 5, pady = 10)
 Text3.grid(row=7,columnspan=5)
 
+
+imgLbl = Label(Gui, text="Img")
+imgLbl.grid(row = 3, column= 1)
 CAMINIT()
 CAMMERA()
 
