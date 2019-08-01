@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 # Importing Libraries
 
 import RPi.GPIO as GPIO
