@@ -100,12 +100,6 @@ def QUIT():
     GPIO.cleanup()
     Gui.quit()
 
-def CAMINIT():
-    cam = cv2.VideoCapture(0)
-    cam.set(3, 320)
-    cam.set(4, 240)
-    pass
-
 def CAMMERA():
     if camFlag:
         ret, frame = cam.read()
@@ -167,6 +161,9 @@ imgLbl.grid(row = 0, column= 2)
 CamToggleBtn = Button(Gui, text='On', font = Font1, command = CAMONOFF, bg='bisque2', height = 1, width = 10)
 CamToggleBtn.grid(row=6, column=1)
 
-CAMINIT()
+cam = cv2.VideoCapture(0)
+cam.set(3, 320)
+cam.set(4, 240)
+
 CAMMERA()
 Gui.mainloop()
