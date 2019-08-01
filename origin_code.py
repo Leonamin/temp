@@ -151,7 +151,7 @@ Text3 = Label(Gui,text='PROJECT AVATAR', font = Font1, bg = '#1E1E1E', fg='#FFFF
 Text3.grid(row=7,columnspan=5)
 
 
-imgLbl = Label(Gui, text="Img")
+imgLbl = Label(Gui, text="Img", width= "100", height= "100")
 imgLbl.grid(row = 3, column= 1)
 CAMINIT()
 CAMMERA()
