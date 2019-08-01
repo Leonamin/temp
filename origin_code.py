@@ -101,14 +101,14 @@ def QUIT():
     Gui.quit()
 
 def CAMINIT():
-    cap = cv2.VideoCapture(0)
-    cap.set(3, 320)
-    cap.set(4, 240)
+    cam = cv2.VideoCapture(0)
+    cam.set(3, 320)
+    cam.set(4, 240)
     pass
 
 def CAMMERA():
     if camFlag:
-        ret, frame = cap.read()
+        ret, frame = cam.read()
         frame = cv2.flip(frame, 1)
         cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GBA)
         img = Image.fromarray(cv2image)
