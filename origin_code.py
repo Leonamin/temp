@@ -164,7 +164,7 @@ imgLbl = Label(Gui, text="Img")
 imgLbl.grid(row = 0, column= 1)
 
 CamToggleBtn = Button(Gui, text='On', font = Font1, command = CAMONOFF, bg='bisque2', height = 1, width = 10)
-CamToggleBtn.grid(row=8, column=0)
+CamToggleBtn.grid(row=6, column=1)
 
 CAMINIT()
 CAMMERA()
