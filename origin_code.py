@@ -104,7 +104,7 @@ def CAMMERA():
     if camFlag:
         ret, frame = cam.read()
         frame = cv2.flip(frame, 1)
-        cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GBA)
+        cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
         img = Image.fromarray(cv2image)
         imgtk = ImageTk.PhotoImage(image=img)
         imgLbl.imgtk = imgtk
