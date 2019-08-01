@@ -108,27 +108,17 @@ def CAMINIT():
     pass
 
 def CAMMERA():
-    while True:
-        if killCamFlag:
-            break
-
-        if camFlag:
-            ret, frame = cap.read()
-            frame = cv2.flip(frame, 1)
-            cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GBA)
-            img = Image.fromarray(cv2image)
-            imgtk = ImageTk.PhotoImage(image=img)
-            imgLbl.imgtk = imgtk
-            imgLbl.configure(image=imgtk)
-        else:
-            pass
-    pass
-
-CAMINIT()
-
-# 스레드 설정
-cam_thread = threading.Thread(target=CAMMERA)
-cam_thread.start()
+    if camFlag:
+        ret, frame = cap.read()
+        frame = cv2.flip(frame, 1)
+        cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GBA)
+        img = Image.fromarray(cv2image)
+        imgtk = ImageTk.PhotoImage(image=img)
+        imgLbl.imgtk = imgtk
+        imgLbl.configure(image=imgtk)
+    else:
+        pass
+    Gui.after(100, CAMMERA)
 
 # Funtion for Buttons ended here
 
@@ -161,5 +151,8 @@ Button7.grid(row=6,column=0)
 
 Text3 = Label(Gui,text='PROJECT AVATAR', font = Font1, bg = '#1E1E1E', fg='#FFFFFF', padx = 5, pady = 10)
 Text3.grid(row=7,columnspan=5)
+
+CAMINIT()
+CAMMERA()
 
 Gui.mainloop()
