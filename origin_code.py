@@ -119,6 +119,14 @@ def CAMMERA():
         pass
     Gui.after(100, CAMMERA)
 
+def CAMONOFF():
+    camFlag ^= 1
+    if camFlag:
+        CamToggleBtn.configure(text="Off")
+    else:
+        CamToggleBtn.configure(text="On")
+    pass
+
 # Funtion for Buttons ended here
 
 Text1 = Label(Gui,text='STATUS:', font = Font1, fg='#FFFFFF', bg = '#1E1E1E', padx = 20, pady = 30)
@@ -154,7 +162,10 @@ Text3.grid(row=7,columnspan=5)
 
 imgLbl = Label(Gui, text="Img")
 imgLbl.grid(row = 0, column= 1)
+
+CamToggleBtn = Button(Gui, text='On', font = Font1, command = CAMONOFF, bg='bisque2', height = 1, width = 10)
+CamToggleBtn.grid(row=8, column=0)
+
 CAMINIT()
 CAMMERA()
-
 Gui.mainloop()
