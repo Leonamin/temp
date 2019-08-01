@@ -87,9 +87,9 @@ def REBOOT():
     GPIO.output(4, GPIO.HIGH)
 
 def QUIT():
- print("Exit Button pressed")
+    print("Exit Button pressed")
     GPIO.cleanup()
- Gui.quit()
+    Gui.quit()
 
 # Funtion for Buttons ended here
 
