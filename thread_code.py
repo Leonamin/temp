@@ -1,25 +1,24 @@
 #-*- coding: utf-8 -*-
 # Importing Libraries
 
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 from Tkinter import *
 import tkFont
 import cv2                  # opencv 카메라 제어
 import threading            # 멀티 스레딩
-import time
 from PIL import Image, ImageTk
 
 # Libraries Imported successfully
 
 # Raspberry Pi 3 Pin Settings
 
-# GPIO.setwarnings(False)
-# GPIO.setmode(GPIO.BCM) # We are accessing GPIOs according to their physical location
-# pins = [14,15,17,4,23,24,27,22]
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM) # We are accessing GPIOs according to their physical location
+pins = [14,15,17,4,23,24,27,22]
 
-# GPIO.setup(pins, GPIO.OUT) # We have set our LED pin mode to output
-# GPIO.output(pins, GPIO.HIGH) # When it will start then LED will be OFF
+GPIO.setup(pins, GPIO.OUT) # We have set our LED pin mode to output
+GPIO.output(pins, GPIO.HIGH) # When it will start then LED will be OFF
 
 # Raspberry Pi 3 Pin Settings
 
@@ -58,68 +57,50 @@ for pin in pins :
 '''  
 
 def UP():
-    # GPIO.output(14, GPIO.LOW) # UP button pressed 
+    GPIO.output(14, GPIO.LOW) # UP button pressed 
     Text2 = Label(Gui,text='     UP     ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
-    # time.sleep(0.5)
-    # GPIO.output(14, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(14, GPIO.HIGH)
 
 
 def DOWN():
-    # GPIO.output(15, GPIO.LOW) # DOWN button pressed 
+    GPIO.output(15, GPIO.LOW) # DOWN button pressed 
     Text2 = Label(Gui,text='  DOWN  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
-    # time.sleep(0.5)
-    # GPIO.output(15, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(15, GPIO.HIGH)
 
 def STOP():
-    # GPIO.output(17, GPIO.LOW) # STOP button pressed 
+    GPIO.output(17, GPIO.LOW) # STOP button pressed 
     Text2 = Label(Gui,text='  STOP  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
-    # time.sleep(0.5)
-    # GPIO.output(17, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(17, GPIO.HIGH)
 
 def DOOR():
-    # GPIO.output(27, GPIO.LOW)
+    GPIO.output(27, GPIO.LOW)
     Text2 = Label(Gui,text='Sensor OFF', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
 
 def DOOR2():
-    # GPIO.output(27, GPIO.HIGH)
+    GPIO.output(27, GPIO.HIGH)
     Text2 = Label(Gui,text='Sensor ON', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
 
 def REBOOT():
-    # GPIO.output(4, GPIO.LOW) # Reboot button pressed 
+    GPIO.output(4, GPIO.LOW) # Reboot button pressed 
     Text2 = Label(Gui,text='  REBOOT  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
     Text2.grid(row=0,column=1)
-    # time.sleep(1)
-    # GPIO.output(4, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(4, GPIO.HIGH)
 
 def QUIT():
-    global camFlag
     global killCamFlag
-    print("Exit Button pressed")
-    camFlag = 0
     killCamFlag = 1
-    # GPIO.cleanup()
+    print("Exit Button pressed")
+    GPIO.cleanup()
     Gui.quit()
-
-"""
-def CAMMERA():
-    global camFlag
-    if camFlag:
-        ret, frame = cam.read()
-        frame = cv2.flip(frame, 1)
-        cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img = Image.fromarray(cv2image)
-        imgtk = ImageTk.PhotoImage(image=img)
-        imgLbl.imgtk = imgtk
-        imgLbl.configure(image=imgtk)
-    else:
-        pass
-    Gui.after(10, CAMMERA)
-"""
 
 def CAMMERA():
     global camFlag
@@ -136,7 +117,7 @@ def CAMMERA():
             imgtk = ImageTk.PhotoImage(image=img)
             imgLbl.imgtk = imgtk    
             imgLbl.configure(image=imgtk)
-            time.sleep(0.01)
+            time.sleep(0.033)
     else:
         pass
 
@@ -195,8 +176,7 @@ cam = cv2.VideoCapture(0)
 cam.set(3, 320)
 cam.set(4, 240)
 
-
-# CAMMERA()
 camTr = threading.Thread(target=CAMMERA)
 camTr.start()
+
 Gui.mainloop()
