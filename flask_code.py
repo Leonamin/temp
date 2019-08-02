@@ -29,7 +29,7 @@ class Camera:
         cap.set(4, 320)
     
         while cap.isOpened():
-            _, frame = cap.read() 
+            ret, frame = cap.read() 
 
             ret, jpeg = cv2.imencode('.jpg', frame)
             cls.frame = jpeg.tobytes()
