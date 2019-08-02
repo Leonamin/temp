@@ -112,7 +112,7 @@ def CAMMERA():
         imgLbl.configure(image=imgtk)
     else:
         pass
-    Gui.after(10, CAMMERA)
+    Gui.after(1, CAMMERA)
 
 def CAMONOFF():
     global camFlag
