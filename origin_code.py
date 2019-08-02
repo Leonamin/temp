@@ -102,16 +102,15 @@ def QUIT():
 
 def CAMMERA():
     global camFlag
-    if camFlag:
-        ret, frame = cam.read()
-        frame = cv2.flip(frame, 1)
-        cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img = Image.fromarray(cv2image)
-        imgtk = ImageTk.PhotoImage(image=img)
-        imgLbl.imgtk = imgtk
-        imgLbl.configure(image=imgtk)
-    else:
-        pass
+    # if camFlag:
+    ret, frame = cam.read()
+    frame = cv2.flip(frame, 1)
+    cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+    img = Image.fromarray(cv2image)
+    imgtk = ImageTk.PhotoImage(image=img)
+    imgLbl.imgtk = imgtk
+    imgLbl.configure(image=imgtk)
+    
     Gui.after(1, CAMMERA)
 
 def CAMONOFF():
@@ -153,10 +152,10 @@ Button6 = Button(Gui, text='DOORon', font = Font1, command = DOOR2, bg='bisque2'
 Button6.grid(row=3,column=1)
 
 Button7 = Button(Gui, text='QUIT', font = Font1, command = QUIT, bg='bisque2', height = 1, width = 10)
-Button7.grid(row=4,column=0)
+Button7.grid(row=3,column=2)
 
 Text3 = Label(Gui,text='PROJECT AVATAR', font = Font1, bg = '#1E1E1E', fg='#FFFFFF', padx = 5, pady = 10)
-Text3.grid(row=5,columnspan=5)
+Text3.grid(row=4,columnspan=4)
 
 
 imgLbl = Label(Gui, text="Img")
