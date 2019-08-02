@@ -3,6 +3,7 @@
 
 import cv2
 import sys
+import os
 import RPi.GPIO as GPIO
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -128,11 +129,12 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
             self.statusLbl.setStyleSheet("background-color: rgb(0, 255, 0)")
         else:
             GPIO.output(18, GPIO.LOW) # When it will start then LED will be OFF
-            self.statusLbl.setText("LOW")
+            self.statusLbl.setText("LOW ")
             self.statusLbl.setStyleSheet("background-color: rgb(255, 0, 0)")
 
     def sendCommand(self):
         cmd = self.commandLine.text()
+        os.system("echo \"%s\"" % cmd)
         print(cmd)
 
 if __name__ == '__main__':
