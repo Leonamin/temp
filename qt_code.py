@@ -3,6 +3,7 @@
 
 import cv2
 import sys
+import RPi.GPIO
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -80,6 +81,11 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
     camFlag = 0
     camOnSig = QtCore.pyqtSignal()
 
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM) # We are accessing GPIOs according to their physical location
+    pins = [18]
+    GPIO.setup(pins, GPIO.OUT) # We have set our LED pin mode to output
+
     def initProgram(self):
         self.vidTr = QtCore.QThread()
         self.vidTr.start()
@@ -117,9 +123,11 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
     def gpioToggle(self):
         self.gpioFlag ^= 1
         if self.gpioFlag:
+            GPIO.output(18, GPIO.HIGH) # When it will start then LED will be OFF
             self.statusLbl.setText("HIGH")
             self.statusLbl.setStyleSheet("background-color: rgb(0, 255, 0)")
         else:
+            GPIO.output(18, GPIO.LOW) # When it will start then LED will be OFF
             self.statusLbl.setText("LOW")
             self.statusLbl.setStyleSheet("background-color: rgb(255, 0, 0)")
 
