@@ -36,7 +36,7 @@ Font1 = tkFont.Font(family = 'Helvetica', size = 24, weight = 'bold')
 
 # Flag variables creating
 killCamFlag = 0
-camFlag = 1
+camFlag = 0
 
 # Funtion for Buttons started here
 
@@ -118,11 +118,13 @@ def CAMONOFF():
     global camFlag
     camFlag ^= 1
     if camFlag:
-        OnText = Label(Gui,text='  Off  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
+        OnText = Label(Gui,text='CAM On', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
         OnText.grid(row=0,column=1)
+        CamToggleBtn.configure(text='Off')
     else:
-        OffText = Label(Gui,text='  On  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
+        OffText = Label(Gui,text='CAMOff', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
         OffText.grid(row=0,column=1)
+        CamToggleBtn.configure(text='On')
 
 # Funtion for Buttons ended here
 
