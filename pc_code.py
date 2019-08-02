@@ -136,7 +136,7 @@ def CAMMERA():
             imgtk = ImageTk.PhotoImage(image=img)
             imgLbl.imgtk = imgtk    
             imgLbl.configure(image=imgtk)
-            time.sleep(0.01)
+            time.sleep(0.06)
     else:
         pass
 

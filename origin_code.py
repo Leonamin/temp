@@ -135,35 +135,35 @@ Text2 = Label(Gui,text='', font = Font1, fg='#FFFFFF', bg = '#1E1E1E', padx = 0)
 Text2.grid(row=0,column=1)
 
 Button1 = Button(Gui, text='UP', font = Font1, command = UP, bg='bisque2', height = 1, width = 10)
-Button1.grid(row=1,column=0)
+Button1.grid(row=2,column=0)
 
 Button2 = Button(Gui, text='DOWN', font = Font1, command = DOWN, bg='bisque2', height = 1, width = 10)
-Button2.grid(row=2,column=0)
+Button2.grid(row=2,column=1)
 
 Button3 = Button(Gui, text='STOP', font = Font1, command = STOP, bg='bisque2', height = 1, width = 10)
-Button3.grid(row=3,column=0)
+Button3.grid(row=2,column=2)
 
 Button4 = Button(Gui, text='REBOOT', font = Font1, command = REBOOT, bg='bisque2', height = 1, width = 10)
-Button4.grid(row=4,column=0)
+Button4.grid(row=2,column=3)
 
 Button5 = Button(Gui, text='DOORclosed', font = Font1, command = DOOR, bg='bisque2', height = 1, width = 10)
-Button5.grid(row=5,column=0)
+Button5.grid(row=3,column=0)
 
 Button6 = Button(Gui, text='DOORon', font = Font1, command = DOOR2, bg='bisque2', height = 1, width = 10)
-Button6.grid(row=5,column=1)
+Button6.grid(row=3,column=1)
 
 Button7 = Button(Gui, text='QUIT', font = Font1, command = QUIT, bg='bisque2', height = 1, width = 10)
-Button7.grid(row=6,column=0)
+Button7.grid(row=4,column=0)
 
 Text3 = Label(Gui,text='PROJECT AVATAR', font = Font1, bg = '#1E1E1E', fg='#FFFFFF', padx = 5, pady = 10)
-Text3.grid(row=7,columnspan=5)
+Text3.grid(row=5,columnspan=5)
 
 
 imgLbl = Label(Gui, text="Img")
 imgLbl.grid(row = 0, column= 2)
 
 CamToggleBtn = Button(Gui, text='On', font = Font1, command = CAMONOFF, bg='bisque2', height = 1, width = 10)
-CamToggleBtn.grid(row=1, column=1)
+CamToggleBtn.grid(row=1, column=0)
 
 cam = cv2.VideoCapture(0)
 cam.set(3, 320)
