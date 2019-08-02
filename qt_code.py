@@ -3,7 +3,7 @@
 
 import cv2
 import sys
-import RPi.GPIO
+import RPi.GPIO as GPIO
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
