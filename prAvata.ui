@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>517</height>
+    <width>574</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
       <x>0</x>
       <y>330</y>
       <width>421</width>
-      <height>131</height>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -42,10 +42,22 @@
        </property>
       </widget>
      </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>0</y>
+      <width>151</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QLabel" name="paddingLbl">
+        <widget class="QLabel" name="paddingLbl_2">
          <property name="maximumSize">
           <size>
            <width>70</width>
@@ -77,7 +89,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="paddingLbl_2">
+        <widget class="QLabel" name="paddingLbl">
          <property name="maximumSize">
           <size>
            <width>70</width>
@@ -111,7 +123,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QPushButton" name="camToggleBtn">
          <property name="maximumSize">
@@ -174,7 +186,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>425</width>
+     <width>574</width>
      <height>28</height>
     </rect>
    </property>
