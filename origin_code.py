@@ -101,6 +101,7 @@ def QUIT():
     Gui.quit()
 
 def CAMMERA():
+    global camFlag
     if camFlag:
         ret, frame = cam.read()
         frame = cv2.flip(frame, 1)
@@ -114,6 +115,7 @@ def CAMMERA():
     Gui.after(100, CAMMERA)
 
 def CAMONOFF():
+    global camFlag
     camFlag ^= 1
     if camFlag:
         OnText = Label(Gui,text='  Off  ', font = Font1, bg = '#1E1E1E', fg='white', padx = 0)
