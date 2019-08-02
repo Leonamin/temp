@@ -135,7 +135,6 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
     def sendCommand(self):
         cmd = self.commandLine.text()
         os.system("echo \"%s\"" % cmd)
-        print(cmd)
 
 if __name__ == '__main__':
     import sys
