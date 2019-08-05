@@ -41,7 +41,7 @@ while True:
     if (distance > 0):
         print ("%d mm, %d cm" % (distance, (distance/10)))
 
-    time.sleep(1)
+    time.sleep(timing/1000000.00)
 
 tof.stop_ranging()
 
