@@ -3,6 +3,7 @@
 
 import cv2
 import sys
+import numpy
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -50,6 +51,15 @@ class ShowVideo(QtCore.QObject):
     def camToggle(self):
         self.camFlag ^= 1
 
+    def createBlank(self):
+        blank_image = numpy.zeros(shape=[480, 320, 3], dtype=numpy.uint8)
+        color_swapped_image = cv2.cvtColor(blank_image, cv2.COLOR_BGR2RGB)
+        qt_image1 = QtGui.QImage(color_swapped_image.data,
+                                    self.width,
+                                    self.height,
+                                    color_swapped_image.strides[0],
+                                    QtGui.QImage.Format_RGB888)
+        self.VideoSignal1.emit(qt_image1)
 
 class ImageViewer(QtWidgets.QWidget):
     def __init__(self, parent=None):
@@ -113,6 +123,7 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
             self.camToggleBtn.setText("Off")
         else:
             self.camToggleBtn.setText("On")
+            self.vid.createBlank()
 
     def gpioToggle(self):
         self.gpioFlag ^= 1
@@ -125,8 +136,7 @@ class MainProgram(Ui_MainWindow, QtCore.QObject):
 
     def sendCommand(self):
         cmd = self.commandLine.text()
-        print(cmd)
-    
+        
     def quitSig(self):
         QtCore.QCoreApplication.instance().quit() 
 
