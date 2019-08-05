@@ -30,6 +30,7 @@ SOFTWARE.
 #include <errno.h>
 #include <ctype.h>
 #include <time.h>
+#include <unistd.h>
 #include "vl53l0x_api.h"
 #include "vl53l0x_platform.h"
 
@@ -250,10 +251,10 @@ void startRanging(int object_number, int mode, uint8_t i2c_address, uint8_t TCA9
                             {
                                 Status = VL53L0X_PerformRefCalibration(pMyDevice[object_number],
                                         &VhvSettings, &PhaseCal); // Device Initialization
-
+                                usleep(10000);
                                 Status = VL53L0X_SetRefCalibration(pMyDevice[object_number],
                                         VhvSettings, PhaseCal);
-
+                                usleep(300000);
                                 if(Status == VL53L0X_ERROR_NONE)
                                 {
                                     Status = VL53L0X_PerformRefSpadManagement(pMyDevice[object_number],
