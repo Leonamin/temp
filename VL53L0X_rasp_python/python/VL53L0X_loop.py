@@ -39,7 +39,7 @@ print ("Timing %d ms" % (timing/1000))
 while True:
     distance = tof.get_distance()
     if (distance > 0):
-        print ("%d mm, %d cm, %d" % (distance, (distance/10), count))
+        print ("%d mm, %d cm" % (distance, (distance/10)))
 
     time.sleep(1)
 
