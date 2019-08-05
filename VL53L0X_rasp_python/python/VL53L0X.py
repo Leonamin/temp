@@ -115,3 +115,6 @@ class VL53L0X(object):
             return (budget.value + 1000)
         else:
             return 0
+
+    def test(self):
+        tof_lib.test()

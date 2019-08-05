@@ -539,3 +539,7 @@ VL53L0X_DEV getDev(int object_number)
     return Dev;
 }
 
+void test()
+{
+    printf("Hello World\n");
+}
