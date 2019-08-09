@@ -2,7 +2,7 @@
 <head>
    <title>Project Avatar</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
-  maximum-scale=1.0, minimum-scale=1.0">
+  maximum-scale=1.0, minimum-scale=1.0" charset="utf-8">
    
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -17,7 +17,7 @@
       {% if pins[pin].name == "Door" %}
          {% if pins[pin].state == true %}
             <div class="row"><div class="col-md-2">
-            <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">{{pins[pin].name}}</a></div></div>
+            <a id="{{ pins[pin].name }}" href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">{{pins[pin].name}}</a></div></div>
          {% else %}
             <div class="row"><div class="col-md-2">
             <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">{{pins[pin].name}}</a></div></div>   
