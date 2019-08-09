@@ -12,10 +12,18 @@
 <body>
    <h1>RPi Web Server</h1>
    {% for pin in pins %}<div class="row">
-         <div class="col-md-2">
-      <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">pins[pin].name</a></div></div>
+   {% if pins[pin].name == "Door" %}
+      {% if pins[pin].state == true %}
          <div class="row"><div class="col-md-2">
-      <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">pins[pin].name</a></div></div>
+         <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">{% pins[pin].name %}</a></div></div>
+      {% else %}
+         <div class="row"><div class="col-md-2">
+         <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">{% pins[pin].name %}</a></div></div>   
+      {% endif %}
+   {% else %}
+         <div class="row"><div class="col-md-2">
+         <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-primary" role="button">{% pins[pin].name %}</a></div></div>   
+   {% endif %}
    {% endfor %}
 </body>
 </html>
