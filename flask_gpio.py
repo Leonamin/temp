@@ -15,8 +15,12 @@ GPIO.setmode(GPIO.BCM)
 
 # Create a dictionary called pins to store the pin number, name, and pin state:
 pins = {
-   23 : {'name' : 'GPIO 23', 'state' : GPIO.LOW},
-   24 : {'name' : 'GPIO 24', 'state' : GPIO.LOW}
+   2 : {'name' : 'RPI PWR' , 'state' : GPIO.LOW},
+   3 : {'name' : 'MB PWR'  , 'state' : GPIO.LOW},
+   4 : {'name' : 'Door'    , 'state' : GPIO.LOW},
+   17 : {'name' : 'UP'     , 'state' : GPIO.LOW},
+   27 : {'name' : 'DOWN'   , 'state' : GPIO.LOW},
+   22 : {'name' : 'STOP'   , 'state' : GPIO.LOW}
    }
 
 # Set each pin as an output and make it low:
