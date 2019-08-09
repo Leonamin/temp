@@ -7,12 +7,12 @@ app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 
 pins = {
-   2 : {'name' : 'RPI PWR' , 'state' : GPIO.LOW},
+   4 : {'name' : 'RPI PWR' , 'state' : GPIO.LOW},
    3 : {'name' : 'MB PWR'  , 'state' : GPIO.LOW},
-   4 : {'name' : 'Door'    , 'state' : GPIO.LOW},
-   17 : {'name' : 'UP'     , 'state' : GPIO.LOW},
-   27 : {'name' : 'DOWN'   , 'state' : GPIO.LOW},
-   22 : {'name' : 'STOP'   , 'state' : GPIO.LOW}
+   2 : {'name' : 'Door'    , 'state' : GPIO.LOW},
+   27 : {'name' : 'UP'     , 'state' : GPIO.LOW},
+   22 : {'name' : 'DOWN'   , 'state' : GPIO.LOW},
+   17 : {'name' : 'STOP'   , 'state' : GPIO.LOW}
    }
 
 for pin in pins:

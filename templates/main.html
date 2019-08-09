@@ -15,7 +15,7 @@
    <h1>Project Avatar</h1>
    {% for pin in pins %}<div class="row">
       {% if pins[pin].name == "Door" %}
-         {% if pins[pin].state == true %}
+         {% if pins[pin].state == True %}
             <div class="row"><div class="col-md-2">
             <a id="{{ pins[pin].name }}" href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">{{pins[pin].name}}</a></div></div>
          {% else %}
